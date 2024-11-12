@@ -1,0 +1,12 @@
+<!-- templates/profile.html -->
+{% extends "base.html" %}
+{% block content %}
+<h2 class="welcome-message">Perfil de Usuario</h2>
+
+<div class="profile-box">
+    <p><strong>Nombre de usuario:</strong> {{ user.username }}</p>
+    <p><strong>Correo electrónico:</strong> {{ user.email }}</p>
+    <p><strong>Número de teléfono:</strong> {{ user.phone }}</p>
+</div>
+
+{% endblock %}

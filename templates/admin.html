@@ -1,0 +1,82 @@
+<!-- templates/admin.html -->
+{% extends "base.html" %}
+{% block content %}
+    <h2 class="welcome-message">Panel de Administración</h2>
+    <h3>Solicitudes de Impresión</h3>
+    {% if print_requests %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Archivo</th>
+                    <th>Color</th>
+                    <th>Faz</th>
+                    <th>Usuario</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for request in print_requests %}
+                    <tr>
+                        <td>{{ request.id }}</td>
+                        <td>
+                            <a href="{{ url_for('download_file', filename=request.filename) }}" target="_blank">
+                                {{ request.filename }}
+                            </a>
+                        </td>
+                        <td>{{ request.color }}</td>
+                        <td>{{ request.faz }}</td>
+                        <td>
+                            <a href="{{ url_for('profileADM', user_id=request.user.id) }}">
+                                {{ request.user.username }}
+                            </a>
+                        </td>
+                        <td>
+                            <form action="{{ url_for('delete_print_request', request_id=request.id) }}" method="post" style="display:inline;">
+                                <button type="submit">Pedido Realizado</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No hay solicitudes de impresión.</p>
+    {% endif %}
+    
+    <h3>Solicitudes de Servicio Técnico</h3>
+    {% if service_requests %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Dispositivo</th>
+                    <th>Descripción</th>
+                    <th>Usuario</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for request in service_requests %}
+                    <tr>
+                        <td>{{ request.id }}</td>
+                        <td>{{ request.device_name }}</td>
+                        <td>{{ request.description }}</td>
+                        <td>
+                            <a href="{{ url_for('profile', user_id=request.user.id) }}">
+                                {{ request.user.username }}
+                            </a>
+                        </td>
+                        <td>
+                            <form action="{{ url_for('delete_service_request', request_id=request.id) }}" method="post" style="display:inline;">
+                                <button type="submit">Pedido Realizado</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No hay solicitudes de servicio técnico.</p>
+    {% endif %}
+{% endblock %}

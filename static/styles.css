@@ -1,0 +1,247 @@
+/* static/styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;  /* Hace que el body ocupe todo el alto de la pantalla */
+}
+
+header, footer {
+    background-color: #333;
+    color: white;
+    padding: 1em 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    flex-shrink: 0;
+}
+
+.logo img {
+    height: 100px;
+}
+
+h1 {
+    flex-grow: 1;
+    text-align: center;
+    margin-left: 100px;
+    margin-right: auto; /* Esto centra el texto del header */
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+nav a {
+    color: #ccc;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #fff;
+}
+
+button {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 0.7em 1.2em;
+    margin-top: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #666;
+}
+
+/* Modificar solo el main para centrar su contenido, pero un poco más arriba */
+main {
+    flex-grow: 1; /* Esto hace que el contenido principal ocupe el espacio disponible */
+    padding: 2em;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center; /* Centra el contenido en el eje horizontal */
+    align-items: flex-start; /* Lo alinea un poco hacia arriba */
+    flex-direction: column; /* Asegura que el contenido dentro de main sea apilado */
+    margin-bottom: 150px; /* Ajuste para que el contenido esté un poco más arriba */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+form label {
+    margin: 0.5em 0 0.2em 0;
+}
+
+form input, form select, form textarea {
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.flashes {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 1em 0;
+    color: #333;
+    text-align: center;
+}
+
+/* Mantener el footer igual */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    margin-top: auto; /* Esto hace que el footer se quede pegado al fondo */
+}
+
+footer a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #ddd;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2em;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 0.8em;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+/* Efecto de agrandado del mensaje */
+.welcome-message {
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 50px;
+    transition: font-size 0.3s ease-in-out;
+    font-weight: bold;
+    color: #333;
+}
+
+.welcome-message:hover {
+    font-size: 4em; /* Se agranda al poner el mouse encima */
+    color: #444;
+}
+
+/* Contenedor de los botones de impresión y servicio técnico */
+.buttons-container {
+    display: flex;
+    justify-content: space-between; /* Asegura que los botones estén uno al lado del otro */
+    width: 100%; /* Hace que ocupe todo el espacio horizontal */
+    max-width: 600px; /* Limita el ancho de los botones */
+    margin: 0 auto; /* Centra los botones */
+}
+
+/* Estilo de los botones cuadrados */
+.square-button {
+    width: 200px; /* Ancho del botón */
+    height: 200px; /* Alto del botón (lo mismo que el ancho para hacerlo cuadrado) */
+    font-size: 1.8em; /* Tamaño del texto */
+    text-align: center; /* Centra el texto dentro del botón */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #444;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.square-button:hover {
+    background-color: #666;
+    transform: scale(1.1); /* Efecto de aumento al pasar el ratón */
+}
+
+/* Estilo para el contenedor del perfil */
+/* Cambiar el color de todo el texto dentro del recuadro */
+.profile-box {
+    background-color: #333;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 50px;
+    margin-top: 50px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #ccc; /* Cambia el color del texto dentro del recuadro */
+}
+
+
+/* Estilo para los párrafos dentro del recuadro */
+.profile-box p {
+    font-size: 1.8em;
+    margin: 10px 0; /* Margen entre los elementos */
+}
+
+/* Estilo para los títulos dentro del recuadro */
+.profile-box strong {
+    color: #ccc; /* Color para el texto de los títulos */
+}
+
+/* Centrar los mensajes de flash */
+.flash-messages {
+    display: flex;
+    justify-content: center; /* Alinea horizontalmente al centro */
+    align-items: center;     /* Alinea verticalmente al centro */
+    text-align: center;      /* Asegura que el texto dentro esté centrado */
+    width: 100%;
+    margin-top: 20px;
+}
+
+.flashes {
+    list-style-type: none;
+    padding: 0;
+}
+
+.flashes li {
+    background-color: #ccc; /* Fondo rojo para los mensajes de error */
+    color: #333;            /* Color del texto (oscuro) */
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+}

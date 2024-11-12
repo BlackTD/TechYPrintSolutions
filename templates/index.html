@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="welcome-message">Bienvenido, {{ current_user.username }}!</h2> <!-- Clase para agrandar mensaje -->
+    <div class="buttons-container">
+        <a href="/impresion"><button class="square-button">Impresión</button></a>
+        <a href="/servicio"><button class="square-button">Servicio Técnico</button></a>
+    </div>
+{% endblock %}

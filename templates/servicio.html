@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    <form method="POST">
+        <h2 class="welcome-message">Detalla tu problema</h2>
+        <label>Nombre del dispositivo:</label>
+        <input type="text" name="dispositivo" required>
+        <label>Descripción del problema:</label>
+        <textarea name="descripcion" required></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+{% endblock %}

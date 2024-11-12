@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- Cartel de bienvenida -->
+    <div class="welcome-message">
+        Bienvenido a Tech y Print Solutions
+    </div>
+
+    <!-- Mensajes de flash debajo del cartel de bienvenida -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash-messages">
+                <ul class="flashes">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+        <h2>Iniciar Sesion</h2>
+        <label>Nombre de Usuario:</label>
+        <input type="text" name="username" required>
+        <label>Contraseña:</label>
+        <input type="password" name="password" required>
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+{% endblock %}
