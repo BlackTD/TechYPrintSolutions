@@ -1,34 +1,31 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <!-- Cartel de bienvenida -->
-    <div class="welcome-message">
-        Bienvenido a Tech y Print Solutions
-    </div>
+<section class="card section fade-in">
+    <span class="badge">🆕 Registro Express</span>
+    <h2 class="section-title">Crea tu cuenta en Tech y Print Solutions</h2>
+    <p class="section-subtitle">Accede a impresiones personalizadas, soporte técnico especializado y notificaciones en tiempo real.</p>
 
-     <!-- Mensajes de flash debajo del cartel de bienvenida -->
-     {% with messages = get_flashed_messages() %}
-     {% if messages %}
-         <div class="flash-messages">
-             <ul class="flashes">
-                 {% for message in messages %}
-                     <li>{{ message }}</li>
-                 {% endfor %}
-             </ul>
-         </div>
-     {% endif %}
- {% endwith %}
-
-    <form method="POST">
-        <h2>Registro de Usuario</h2>
-        <label>Nombre de Usuario:</label>
-        <input type="text" name="username" required>
-        <label>Correo Electrónico:</label>
-        <input type="email" name="email" required>
-        <label>Número de Teléfono:</label>
-        <input type="tel" name="phone" required>
-        <label>Contraseña:</label>
-        <input type="password" name="password" required>
-        <button type="submit">Registrarse</button>
+    <form method="POST" class="form-card">
+        <div class="form-group">
+            <label for="username">Nombre de usuario</label>
+            <input id="username" type="text" name="username" placeholder="Elige tu alias" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input id="email" type="email" name="email" placeholder="correo@ejemplo.com" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Número de teléfono</label>
+            <input id="phone" type="tel" name="phone" placeholder="Ej. +54 11 1234 5678" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Contraseña</label>
+            <input id="password" type="password" name="password" placeholder="Mínimo 8 caracteres" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Crear cuenta</button>
     </form>
+
+    <p class="section-subtitle">¿Ya tienes usuario? <a class="link-inline" href="/login">Inicia sesión aquí</a> y continúa tus gestiones.</p>
+</section>
 {% endblock %}

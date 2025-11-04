@@ -1,12 +1,20 @@
 <!-- templates/profile.html -->
 {% extends "base.html" %}
 {% block content %}
-<h2 class="welcome-message">Perfil de Usuario</h2>
+<section class="card section fade-in">
+    <span class="badge">👤 Perfil</span>
+    <h2 class="section-title">Tu panel personal</h2>
+    <p class="section-subtitle">Consulta tus datos registrados y mantén tu información actualizada para acelerar cada pedido.</p>
 
-<div class="profile-box">
-    <p><strong>Nombre de usuario:</strong> {{ user.username }}</p>
-    <p><strong>Correo electrónico:</strong> {{ user.email }}</p>
-    <p><strong>Número de teléfono:</strong> {{ user.phone }}</p>
-</div>
+    <div class="profile-summary">
+        <p><strong>Nombre de usuario:</strong> {{ user.username }}</p>
+        <p><strong>Correo electrónico:</strong> {{ user.email }}</p>
+        <p><strong>Teléfono de contacto:</strong> {{ user.phone }}</p>
+    </div>
 
+    <div class="cta-group">
+        <a href="/impresion" class="btn btn-primary">Crear nueva orden de impresión</a>
+        <a href="/servicio" class="btn btn-secondary">Solicitar soporte técnico</a>
+    </div>
+</section>
 {% endblock %}

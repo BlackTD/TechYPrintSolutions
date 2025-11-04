@@ -1,19 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
-    <form method="POST" enctype="multipart/form-data">
-        <h2 class="welcome-message">Personaliza tu impresion</h2>
-        <label>Subir Archivo PDF:</label>
-        <input type="file" name="archivo" accept="application/pdf" required>
-        <label>Color:</label>
-        <select name="color">
-            <option value="color">A color</option>
-            <option value="bn">Blanco y negro</option>
-        </select>
-        <label>Faz:</label>
-        <select name="faz">
-            <option value="simple">Simple</option>
-            <option value="doble">Doble</option>
-        </select>
-        <button type="submit">Enviar</button>
+<section class="card section fade-in">
+    <span class="badge">🖨️ Centro de impresión</span>
+    <h2 class="section-title">Personaliza tu próxima impresión</h2>
+    <p class="section-subtitle">Carga tus documentos, define acabados y deja que nuestro equipo se encargue del resto.</p>
+
+    <form method="POST" enctype="multipart/form-data" class="form-card">
+        <div class="form-group">
+            <label for="archivo">Subir archivo PDF</label>
+            <input id="archivo" type="file" name="archivo" accept="application/pdf" required>
+        </div>
+        <div class="form-group">
+            <label for="color">Color de impresión</label>
+            <select id="color" name="color">
+                <option value="color">A color vibrante</option>
+                <option value="bn">Blanco y negro optimizado</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="faz">Tipo de faz</label>
+            <select id="faz" name="faz">
+                <option value="simple">Simple faz</option>
+                <option value="doble">Doble faz</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar pedido</button>
     </form>
+
+    <ul class="info-list">
+        <li><span>⏱️</span> Recibirás una notificación cuando tu documento esté listo para retirar.</li>
+        <li><span>📦</span> Conservamos tus archivos de forma segura para futuras reimpresiones.</li>
+    </ul>
+</section>
 {% endblock %}
