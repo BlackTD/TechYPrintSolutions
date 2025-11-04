@@ -2,40 +2,83 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tech y Print Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
-<body>
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
-            </div>
-            <h1>TECH Y PRINT SOLUTIONS</h1>
-            <div class="nav-buttons">
-                <nav>
-                    {% if current_user.is_authenticated %}
-                        <a href="/">Inicio</a>
-                        <a href="/profile">Mi Perfil</a>
-                        {% if current_user.type == 'admin' %}
-                            <a href="/admin">Admin</a>
+<body class="theme-body">
+    <div class="background-gradient"></div>
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+
+    <div class="page-wrapper">
+        <header class="site-header">
+            <div class="container header-container">
+                <a class="branding" href="/" aria-label="Tech y Print Solutions">
+                    <img class="branding-logo" src="{{ url_for('static', filename='logo.png') }}" alt="Logo de Tech y Print Solutions">
+                    <div class="branding-copy">
+                        <span class="brand-title">Tech y Print Solutions</span>
+                        <span class="brand-tagline">Innovación en impresión y soporte tecnológico</span>
+                    </div>
+                </a>
+
+                <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Mostrar u ocultar menú">
+                <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+
+                <nav class="site-nav" aria-label="Navegación principal">
+                    <ul class="nav-list">
+                        {% if current_user.is_authenticated %}
+                            <li><a class="nav-link" href="/">Inicio</a></li>
+                            <li><a class="nav-link" href="/profile">Mi Perfil</a></li>
+                            {% if current_user.type == 'admin' %}
+                                <li><a class="nav-link" href="/admin">Panel Admin</a></li>
+                            {% endif %}
+                            <li><a class="nav-link nav-cta" href="/logout">Cerrar sesión</a></li>
+                        {% else %}
+                            <li><a class="nav-link" href="/login">Iniciar Sesión</a></li>
+                            <li><a class="nav-link nav-cta" href="/register">Crear Cuenta</a></li>
                         {% endif %}
-                        <a href="/logout">Cerrar sesión</a>
-                    {% else %}
-                        <a href="/login">Iniciar Sesión</a>
-                        <a href="/register">Registrarse</a>
-                    {% endif %}
+                    </ul>
                 </nav>
             </div>
-        </div>
-    </header>
-    <main>
-        {% block content %}{% endblock %}
-    </main>
-    <footer>
-        <a href="#">Instagram</a>
-        <a href="#">WhatsApp</a>
-        <a href="#">X</a>
-    </footer>
+        </header>
+
+        <main class="main-content container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="flash-stack fade-in">
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category|lower }}" role="alert">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer class="site-footer">
+            <div class="container footer-content">
+                <div class="footer-branding">
+                    <span class="footer-title">Tech y Print Solutions</span>
+                    <p class="footer-text">Impresión profesional, soporte confiable y soluciones a la medida.</p>
+                </div>
+                <div class="footer-links">
+                    <a class="footer-link" href="#" aria-label="Instagram">📸 Instagram</a>
+                    <a class="footer-link" href="#" aria-label="WhatsApp">💬 WhatsApp</a>
+                    <a class="footer-link" href="#" aria-label="X">✉️ X</a>
+                </div>
+            </div>
+            <div class="footer-decoration"></div>
+        </footer>
+    </div>
 </body>
 </html>

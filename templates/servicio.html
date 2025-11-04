@@ -1,11 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
-    <form method="POST">
-        <h2 class="welcome-message">Detalla tu problema</h2>
-        <label>Nombre del dispositivo:</label>
-        <input type="text" name="dispositivo" required>
-        <label>Descripción del problema:</label>
-        <textarea name="descripcion" required></textarea>
-        <button type="submit">Enviar</button>
+<section class="card section fade-in">
+    <span class="badge">🛠️ Soporte técnico</span>
+    <h2 class="section-title">Cuéntanos qué ocurre con tu equipo</h2>
+    <p class="section-subtitle">Bríndanos detalles para asignarte un especialista y agilizar la solución.</p>
+
+    <form method="POST" class="form-card">
+        <div class="form-group">
+            <label for="dispositivo">Nombre del dispositivo</label>
+            <input id="dispositivo" type="text" name="dispositivo" placeholder="Ej. Plotter Epson L8180" required>
+        </div>
+        <div class="form-group">
+            <label for="descripcion">Descripción del problema</label>
+            <textarea id="descripcion" name="descripcion" placeholder="Describe síntomas, mensajes de error y acciones previas" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar solicitud</button>
     </form>
+
+    <ul class="info-list">
+        <li><span>💡</span> Adjuntaremos recomendaciones iniciales y próximos pasos directamente en tu perfil.</li>
+        <li><span>📞</span> Nuestro equipo se comunicará contigo para coordinar retiro o asistencia a domicilio.</li>
+    </ul>
+</section>
 {% endblock %}

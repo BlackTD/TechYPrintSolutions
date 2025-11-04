@@ -1,9 +1,38 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2 class="welcome-message">Bienvenido, {{ current_user.username }}!</h2> <!-- Clase para agrandar mensaje -->
-    <div class="buttons-container">
-        <a href="/impresion"><button class="square-button">Impresión</button></a>
-        <a href="/servicio"><button class="square-button">Servicio Técnico</button></a>
+<section class="card hero-card fade-in">
+    <span class="badge">🚀 Experiencia Premium</span>
+    <h1 class="hero-title">Bienvenido, {{ current_user.username }}.</h1>
+    <p class="hero-text">Gestiona tus proyectos de impresión, recibe soporte especializado y descubre soluciones tecnológicas diseñadas para tu negocio o emprendimiento.</p>
+    <div class="cta-group">
+        <a href="/impresion" class="btn btn-primary">🖨️ Solicitar Impresión</a>
+        <a href="/servicio" class="btn btn-secondary">🛠️ Pedir Servicio Técnico</a>
     </div>
+</section>
+
+<section class="card section slide-up">
+    <h2 class="section-title">Descubre nuestras propuestas</h2>
+    <p class="section-subtitle">Todo lo que necesitas para mantener tu flujo creativo activo y tus equipos en perfecto estado.</p>
+    <div class="card-grid grid-2">
+        <article class="card slide-up">
+            <h3>Impresiones de alto impacto</h3>
+            <ul class="info-list">
+                <li><span>🎯</span> Configura colores, faz y cantidad según tus requerimientos.</li>
+                <li><span>⚡</span> Procesamiento ágil y notificaciones cuando tu pedido esté listo.</li>
+                <li><span>📂</span> Historial centralizado de archivos y descargas.</li>
+            </ul>
+            <a href="/impresion" class="btn btn-primary">Comenzar pedido</a>
+        </article>
+        <article class="card slide-up" style="animation-delay:0.1s;">
+            <h3>Soporte técnico experto</h3>
+            <ul class="info-list">
+                <li><span>🔧</span> Describe el problema y asignamos un especialista.</li>
+                <li><span>📊</span> Seguimiento transparente del estado de reparación.</li>
+                <li><span>🤝</span> Recomendaciones preventivas para evitar futuras fallas.</li>
+            </ul>
+            <a href="/servicio" class="btn btn-secondary">Solicitar asistencia</a>
+        </article>
+    </div>
+</section>
 {% endblock %}
